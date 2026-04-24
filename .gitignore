@@ -1,0 +1,29 @@
+# Node dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
+
+# Python environments & cache
+backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# Secrets and Configs
+.env
+backend/.env
+
+# Local Database
+backend/crm.db
+*.sqlite3
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
