@@ -19,7 +19,8 @@ class AgentState(TypedDict):
 
 @tool
 def log_interaction(hcp_name: str, date: str, product_discussed: str, outcome: str) -> str:
-    """Extract entities (HCP Name, Date, Product Discussed, Outcome) from text and save to DB."""
+    """Extract entities (HCP Name, Date, Product Discussed, Outcome) from text and save to DB.
+    IMPORTANT: The `date` parameter MUST be formatted exactly as YYYY-MM-DD (e.g., 2026-01-17)."""
     db = next(get_db())
     try:
         new_interaction = Interaction(
@@ -136,6 +137,9 @@ def tool_node(state: AgentState):
                                 extracted_data_update[frontend_key] = updates[db_key]
                     except Exception:
                         pass
+                elif tool_call['name'] == 'analyze_sentiment':
+                    # Sync the analyzed sentiment directly to the form
+                    extracted_data_update["sentiment"] = str(result)
                 
     return {"messages": tool_responses, "extracted_form_data": extracted_data_update}
 

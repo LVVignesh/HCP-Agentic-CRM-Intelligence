@@ -5,6 +5,7 @@ const initialState = {
   date: '',
   productDiscussed: '',
   outcome: '',
+  sentiment: '',
   chatHistory: [],
   isTyping: false,
 };

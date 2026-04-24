@@ -55,6 +55,18 @@ const FormComponent = () => {
         </div>
         
         <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Sentiment</label>
+          <input
+            type="text"
+            name="sentiment"
+            value={formData.sentiment}
+            readOnly
+            className="w-full px-4 py-2 border border-gray-100 bg-gray-50 rounded-lg text-gray-600 outline-none cursor-not-allowed"
+            placeholder="AI Analyzed Sentiment..."
+          />
+        </div>
+
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Outcome / Next Steps</label>
           <textarea
             name="outcome"
